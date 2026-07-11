@@ -28,10 +28,9 @@ export default function CareerTimeline() {
             </div>
 
             <div
-              className={`metric-card cursor-pointer group border-l-4 transition-all duration-300 ${
+              className={`metric-card cursor-pointer group border-l-4 transition-all duration-300 border-accent ${
                 expanded === i ? 'shadow-2xl scale-[1.01]' : ''
               }`}
-              style={{ borderLeftColor: m.color.split(' ')[1].replace(')', '').replace('from-', '').replace('to-', '').split('-').pop() ? '#f59e0b' : '#3b82f6' }}
               onClick={() => setExpanded(expanded === i ? null : i)}
             >
               <div className="flex items-start justify-between gap-4">

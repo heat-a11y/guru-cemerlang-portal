@@ -10,23 +10,25 @@ export default function Home() {
     <div className="flex min-h-screen">
       <Sidebar />
 
-      <main className="flex-1 ml-64 p-6 md:p-10 lg:p-12 max-w-7xl">
-        <HeroSection />
+      <main className="flex-1 ml-0 md:ml-64 p-4 sm:p-6 md:p-10 lg:p-12 max-w-7xl pt-20 md:pt-6">
+        <div className="mt-10 md:mt-0">
+          <HeroSection />
+        </div>
         <ProfessionalProfile />
 
-        <hr className="section-sparkle my-16" />
+        <hr className="section-sparkle my-12 md:my-16" />
 
         <RaindropMethod />
 
-        <hr className="section-sparkle my-16" />
+        <hr className="section-sparkle my-12 md:my-16" />
 
         <CurriculumPlanner />
 
-        <hr className="section-sparkle my-16" />
+        <hr className="section-sparkle my-12 md:my-16" />
 
         <ResearchLeadership />
 
-        <footer className="mt-16 py-8 border-t border-gray-200 text-center relative">
+        <footer className="mt-12 md:mt-16 py-8 border-t border-gray-200 text-center relative">
           <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-8 h-8 bg-gradient-to-br from-accent to-accent-light rounded-full flex items-center justify-center text-white text-sm shadow-lg">
             ✦
           </div>
