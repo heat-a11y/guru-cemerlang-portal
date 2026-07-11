@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lian Junxiang – Guru Cemerlang</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #1e293b; }
+        ::-webkit-scrollbar-thumb { background: #3b82f6; border-radius: 4px; }
+
+        /* ─── HERO ─── */
+        .hero {
+            background: linear-gradient(135deg, #1e3a5f 0%, #3b82f6 40%, #8b5cf6 70%, #ec4899 100%);
+            padding: 4rem 2rem 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .hero::after {
+            content: '👨‍🏫';
+            position: absolute;
+            font-size: 20rem;
+            opacity: 0.06;
+            right: -4rem;
+            bottom: -5rem;
+            pointer-events: none;
+        }
+        .hero-content { position: relative; z-index: 1; }
+        .hero-avatar {
+            width: 120px; height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 3.5rem;
+            margin: 0 auto 1.5rem;
+            border: 4px solid rgba(255,255,255,0.3);
+            box-shadow: 0 0 40px rgba(251,191,36,0.3);
+            transition: transform 0.3s;
+        }
+        .hero-avatar:hover { transform: scale(1.05) rotate(-5deg); }
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: #fff;
+        }
+        .hero .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(8px);
+            padding: 0.35rem 1rem;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 0.75rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .hero .tagline {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.85);
+            margin-top: 0.75rem;
+        }
+        .hero .contact-strip {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .hero .contact-strip a {
+            color: #fff;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.4rem 1rem;
+            border-radius: 100px;
+            background: rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+            transition: background 0.2s;
+        }
+        .hero .contact-strip a:hover { background: rgba(255,255,255,0.2); }
+
+        /* ─── TICKER BAR ─── */
+        .ticker {
+            background: #0f172a;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+            padding: 0.6rem 0;
+            overflow: hidden;
+        }
+        .ticker-inner {
+            display: flex;
+            gap: 2rem;
+            animation: scroll-ticker 30s linear infinite;
+            white-space: nowrap;
+        }
+        @keyframes scroll-ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .ticker-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+        .ticker-item .label { opacity: 0.6; }
+        .ticker-item .value { color: #fbbf24; font-weight: 600; }
+
+        /* ─── LAYOUT ─── */
+        .container { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; }
+        section { padding: 3.5rem 0; }
+        section:nth-child(even) { background: rgba(255,255,255,0.02); }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 0.3rem;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .section-sub {
+            color: #64748b;
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+        }
+
+        /* ─── CARDS ─── */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+        }
+        .card {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 1rem;
+            padding: 1.25rem;
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(59,130,246,0.3);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+        }
+        .card .icon { font-size: 2rem; display: block; margin-bottom: 0.5rem; }
+        .card h3 { color: #f1f5f9; font-size: 1rem; margin-bottom: 0.3rem; }
+        .card p { color: #94a3b8; font-size: 0.85rem; }
+        .card .year {
+            display: inline-block;
+            padding: 0.15rem 0.6rem;
+            border-radius: 100px;
+            background: rgba(59,130,246,0.15);
+            color: #60a5fa;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: 0.4rem;
+        }
+
+        /* ─── TIMELINE ─── */
+        .timeline { position: relative; padding-left: 2rem; }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 7px; top: 0; bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #3b82f6, #8b5cf6, #ec4899);
+        }
+        .tl-item {
+            position: relative;
+            padding: 0 0 2rem 1.5rem;
+        }
+        .tl-item:last-child { padding-bottom: 0; }
+        .tl-item::before {
+            content: '';
+            position: absolute;
+            left: -1.65rem; top: 0.3rem;
+            width: 14px; height: 14px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border: 3px solid #0f172a;
+        }
+        .tl-item .date {
+            font-size: 0.75rem;
+            color: #60a5fa;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .tl-item h3 {
+            color: #f1f5f9;
+            font-size: 1rem;
+            margin: 0.1rem 0 0.15rem;
+        }
+        .tl-item .meta {
+            color: #64748b;
+            font-size: 0.85rem;
+        }
+
+        /* ─── ACCORDION ─── */
+        .accordion details {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 0.75rem;
+            margin-bottom: 0.6rem;
+            padding: 0.6rem 1.2rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .accordion details:hover { background: rgba(255,255,255,0.07); }
+        .accordion summary {
+            font-weight: 600;
+            font-size: 0.95rem;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #e2e8f0;
+        }
+        .accordion summary::-webkit-details-marker { display: none; }
+        .accordion summary::before {
+            content: '▶';
+            font-size: 0.7rem;
+            transition: transform 0.2s;
+            color: #3b82f6;
+        }
+        .accordion details[open] summary::before { transform: rotate(90deg); }
+        .accordion .answer {
+            margin-top: 0.5rem;
+            padding-left: 1.2rem;
+            color: #94a3b8;
+            font-size: 0.88rem;
+        }
+
+        /* ─── SKILL BADGES ─── */
+        .skill-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+        .skill-badge {
+            padding: 0.4rem 1rem;
+            border-radius: 100px;
+            background: linear-gradient(135deg, rgba(59,130,246,0.15), rgba(139,92,246,0.15));
+            border: 1px solid rgba(59,130,246,0.2);
+            color: #93c5fd;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .skill-badge:hover {
+            background: linear-gradient(135deg, rgba(59,130,246,0.3), rgba(139,92,246,0.3));
+            transform: translateY(-2px);
+        }
+
+        /* ─── ACCOMPLISHMENTS ─── */
+        .accomplishment {
+            padding: 1rem 1.2rem;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 0.75rem;
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            transition: all 0.2s;
+        }
+        .accomplishment:hover {
+            background: rgba(255,255,255,0.06);
+            border-color: rgba(59,130,246,0.2);
+            transform: translateX(4px);
+        }
+        .accomplishment .award-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 0.1rem; }
+        .accomplishment .award-text { font-size: 0.88rem; color: #cbd5e1; line-height: 1.5; }
+        .accomplishment .award-text strong { color: #fbbf24; }
+
+        /* ─── TABLE ─── */
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.88rem;
+            border-radius: 0.75rem;
+            overflow: hidden;
+        }
+        .info-table th {
+            background: rgba(59,130,246,0.15);
+            color: #93c5fd;
+            padding: 0.7rem 1rem;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .info-table td {
+            padding: 0.7rem 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+            color: #cbd5e1;
+        }
+        .info-table tr:hover td { background: rgba(255,255,255,0.03); }
+        .info-table td:first-child { color: #94a3b8; width: 40%; }
+
+        /* ─── STATS ROW ─── */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .stat-card {
+            text-align: center;
+            padding: 1.2rem 0.5rem;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 1rem;
+        }
+        .stat-card .num {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .stat-card .label { color: #64748b; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.04em; margin-top: 0.2rem; }
+
+        /* ─── FOOTER ─── */
+        footer {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            color: #475569;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 640px) {
+            .hero h1 { font-size: 1.8rem; }
+            .hero-avatar { width: 90px; height: 90px; font-size: 2.5rem; }
+            .section-title { font-size: 1.4rem; }
+            .card-grid { grid-template-columns: 1fr; }
+            .stats-row { grid-template-columns: repeat(2, 1fr); }
+            .info-table { font-size: 0.8rem; }
+            .info-table td, .info-table th { padding: 0.5rem 0.6rem; }
+            .hero .contact-strip a { font-size: 0.78rem; padding: 0.3rem 0.7rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<header class="hero">
+    <div class="hero-content">
+        <div class="hero-avatar">👨‍🏫</div>
+        <h1>Lian Junxiang</h1>
+        <div class="badge">🏆 Guru Cemerlang Applicant</div>
+        <p class="tagline">Educator · Curriculum Innovator · Basketball Coach · Lifelong Learner</p>
+        <div class="contact-strip">
+            <a href="tel:+60165081468">📞 (+6)016-5081468</a>
+            <a href="mailto:g-17171850@moe-dl.edu.my">✉️ g-17171850@moe-dl.edu.my</a>
+            <a>🌐 Malaysia</a>
+        </div>
+    </div>
+</header>
+
+<!-- ═══════════════ TICKER ACHIEVEMENTS ═══════════════ -->
+<div class="ticker">
+    <div class="ticker-inner">
+        <span class="ticker-item"><span class="label">🥇</span><span class="value">Gold Awards</span> 5×</span>
+        <span class="ticker-item"><span class="label">🏆</span><span class="value">Excellent Service</span> 2018 · 2019</span>
+        <span class="ticker-item"><span class="label">📚</span><span class="value">Published Author</span> Workbooks since 2021</span>
+        <span class="ticker-item"><span class="label">🏀</span><span class="value">Basketball Coach</span> District & State</span>
+        <span class="ticker-item"><span class="label">🎤</span><span class="value">Speaker</span> Since 2015</span>
+        <span class="ticker-item"><span class="label">📖</span><span class="value">PhD Candidate</span> Educational Psychology</span>
+        <span class="ticker-item"><span class="label">🥇</span><span class="value">Gold Awards</span> 5×</span>
+        <span class="ticker-item"><span class="label">🏆</span><span class="value">Excellent Service</span> 2018 · 2019</span>
+        <span class="ticker-item"><span class="label">📚</span><span class="value">Published Author</span> Workbooks since 2021</span>
+        <span class="ticker-item"><span class="label">🏀</span><span class="value">Basketball Coach</span> District & State</span>
+        <span class="ticker-item"><span class="label">🎤</span><span class="value">Speaker</span> Since 2015</span>
+        <span class="ticker-item"><span class="label">📖</span><span class="value">PhD Candidate</span> Educational Psychology</span>
+    </div>
+</div>
+
+<!-- ═══════════════ STATS ═══════════════ -->
+<section>
+    <div class="container">
+        <div class="stats-row">
+            <div class="stat-card"><div class="num">12+</div><div class="label">Years Teaching</div></div>
+            <div class="stat-card"><div class="num">5</div><div class="label">Gold Awards</div></div>
+            <div class="stat-card"><div class="num">10+</div><div class="label">Conference Talks</div></div>
+            <div class="stat-card"><div class="num">3</div><div class="label">Languages</div></div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ WORK EXPERIENCE ═══════════════ -->
+<section>
+    <div class="container">
+        <h2 class="section-title">💼 Work Experience</h2>
+        <p class="section-sub">Classroom educator with over a decade of service</p>
+        <div class="timeline">
+            <div class="tl-item">
+                <div class="date">2015 – Present</div>
+                <h3>SJKC Pin Min, Bidor Stesen</h3>
+                <p class="meta">Perak, Malaysia · English Language Teacher</p>
+            </div>
+            <div class="tl-item">
+                <div class="date">2013 – 2015</div>
+                <h3>SJKC Moon Teck, Sabak Bernam</h3>
+                <p class="meta">Selangor, Malaysia · English Language Teacher</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ QUALIFICATIONS ═══════════════ -->
+<section>
+    <div class="container">
+        <h2 class="section-title">🎓 Qualifications</h2>
+        <p class="section-sub">Formal education and specialised training</p>
+        <div class="timeline">
+            <div class="tl-item">
+                <div class="date">2023 – Present</div>
+                <h3>PhD (Educational Psychology)</h3>
+                <p class="meta">Universiti Pendidikan Sultan Idris, Tanjung Malim</p>
+            </div>
+            <div class="tl-item">
+                <div class="date">2017</div>
+                <h3>Master of Education (Educational Psychology)</h3>
+                <p class="meta">Universiti Pendidikan Sultan Idris, Tanjung Malim</p>
+            </div>
+            <div class="tl-item">
+                <div class="date">2016</div>
+                <h3>PITO BI – Intensive Training Certification for TESL</h3>
+                <p class="meta">Certified by Ministry of Education Malaysia</p>
+            </div>
+            <div class="tl-item">
+                <div class="date">2012</div>
+                <h3>Bachelor of Education with Honors (Primary Mathematics)</h3>
+                <p class="meta">Teachers' Training Institution (Ipoh Campus)</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ CERTIFICATIONS ═══════════════ -->
+<section>
+    <div class="container">
+        <h2 class="section-title">📜 Certifications</h2>
+        <p class="section-sub">Professional development and specialised credentials</p>
+        <table class="info-table">
+            <thead><tr><th>Certification</th><th>Year</th></tr></thead>
+            <tbody>
+                <tr><td>State Basketball Referees' Training Course – Selangor</td><td>2015</td></tr>
+                <tr><td>State Basketball Referees' Training Course – Perak</td><td>2016</td></tr>
+                <tr><td>Malaysian Basketball Association Level 1 Coaching Certification</td><td>2011</td></tr>
+                <tr><td>AI Foundations by IBM SkillsBuild for Students and Educators</td><td>2022</td></tr>
+                <tr><td>Introduction to Data Science by Cognitive Class.ai</td><td>2022</td></tr>
+                <tr><td>Python for Data Science by IBM</td><td>2022</td></tr>
+                <tr><td>IBM Blockchain Essentials V2 by IBM</td><td>2021</td></tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- ═══════════════ EXPERIENCE ═══════════════ -->
+<section>
+    <div class="container">
+        <h2 class="section-title">🌟 Professional Experience</h2>
+        <p class="section-sub">Beyond the classroom — leadership and expertise</p>
+        <div class="card-grid">
+            <div class="card">
+                <span class="icon">🎓</span>
+                <h3>Master Trainer</h3>
+                <p>English Subject — Batang Padang district & Perak state</p>
+            </div>
+            <div class="card">
+                <span class="icon">🎤</span>
+                <h3>Speaker</h3>
+                <p>Various talks about English subjects at district & state level</p>
+                <span class="year">Since 2015</span>
+            </div>
+            <div class="card">
+                <span class="icon">📚</span>
+                <h3>Published Author</h3>
+                <p>Multiple workbooks published by Heng Hui Enterprise</p>
+                <span class="year">Since 2021</span>
+            </div>
+            <div class="card">
+                <span class="icon">🏀</span>
+                <h3>Basketball Coach</h3>
+                <p>District & State Teams</p>
+                <span class="year">Since 2014</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ SKILLS ═══════════════ -->
+<section>
+    <div class="container">
+        <h2 class="section-title">🛠️ Skills</h2>
+        <p class="section-sub">What I bring to the classroom and beyond</p>
+        <div class="skill-cloud">
+            <span class="skill-badge">🇨🇳 Mandarin</span>
+            <span class="skill-badge">🇬🇧 English</span>
+            <span class="skill-badge">🇲🇾 Malay</span>
+            <span class="skill-badge">📊 Office Tools</span>
+            <span class="skill-badge">💻 IT Operations</span>
+            <span class="skill-badge">🔧 Troubleshooting</span>
+            <span class="skill-badge">🧠 Curriculum Design</span>
+            <span class="skill-badge">📝 Lesson Planning</span>
+            <span class="skill-badge">🏀 Sports Coaching</span>
+            <span class="skill-badge">🧪 Action Research</span>
+            <span class="skill-badge">📖 Material Writing</span>
+            <span class="skill-badge">🎯 HOTS Integration</span>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ KEY ACCOMPLISHMENTS ═══════════════ -->
+<section>
+    <div class="container">
+        <h2 class="section-title">🏅 Key Accomplishments</h2>
+        <p class="section-sub">Recognition, awards, and notable achievements</p>
+
+        <div class="accomplishment">
+            <span class="award-icon">🎤</span>
+            <div class="award-text"><strong>Presenter</strong> — Konvensyen Penyelidikan, Komuniti Pembelajaran Profesional dan Inovasi Pendidikan Program Matrikulasi KPM Kali Ketiga Tahun 2023</div>
+        </div>
+        <div class="accomplishment">
+            <span class="award-icon">🌍</span>
+            <div class="award-text"><strong>Presenter</strong> — International MACEE Melaka State-Led Conference 2023</div>
+        </div>
+        <div class="accomplishment">
+            <span class="award-icon">🥉</span>
+            <div class="award-text"><strong>Bronze Award</strong> — MELTA Creative Teacher at the 30th MELTA International Conference (Sept 2022)</div>
+        </div>
+        <div class="accomplishment">
+            <span class="award-icon">🥇</span>
+            <div class="award-text"><strong>Gold Award</strong> — Karnival Inovasi Pembelajaran Perak Tahun 2021 & 2022 (Anjuran PPD Kerian)</div>
+        </div>
+        <div class="accomplishment">
+            <span class="award-icon">🥉</span>
+            <div class="award-text"><strong>Bronze Award</strong> — MIND Inovasi & Pitching Kategori Warga KPM at Persidangan MIND IPG 2022</div>
+        </div>
+        <div class="accomplishment">
+            <span class="award-icon">🇫🇷</span>
+            <div class="award-text"><strong>Presenter</strong> — 5th International Conference on Research in Teaching and Education, Nice, France (2022)</div>
+        </div>
+        <div class="accomplishment">
+            <span class="award-icon">🥇</span>
+            <div class="award-text"><strong>Gold Award</strong> — Darulaman International Innovation, Competition and Exhibition 2021 (DilCE'21)</div>
+        </div>
+        <div class="accomplishment">
+            <span class="award-icon">🎤</span>
+            <div class="award-text"><strong>Presenter</strong> — 1st International Conference on English Language (ICEL) 2021</div>
+        </div>
+        <div class="accomplishment">
+            <span class="award-icon">🥇</span>
+            <div class="award-text"><strong>Gold Award – Fourth Prize Winner</strong> — MELTA National E-Classroom Teacher Competition 2021</div>
+        </div>
+        <div class="accomplishment">
+            <span class="award-icon">🥉</span>
+            <div class="award-text"><strong>Bronze Award</strong> — INO-B National Innovation Competition in Languages 2020</div>
+        </div>
+        <div class="accomplishment">
+            <span class="award-icon">🏀</span>
+            <div class="award-text"><strong>Assistant Coach</strong> — Coached Perak's U17 Girls Basketball team — <strong>Second Runner-Up</strong> in 2022</div>
+        </div>
+        <div class="accomplishment">
+            <span class="award-icon">🏆</span>
+            <div class="award-text"><strong>Excellent Service Award</strong> — 2018 & 2019</div>
+        </div>
+        <div class="accomplishment">
+            <span class="award-icon">📖</span>
+            <div class="award-text"><strong>Published Author</strong> — English Writing Modules for primary students at district, state, and national levels</div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════ FUN FACTS ═══════════════ -->
+<section>
+    <div class="container">
+        <h2 class="section-title">🧠 Quick Facts</h2>
+        <p class="section-sub">Everything at a glance</p>
+        <div class="accordion">
+            <details><summary>📅 How long have I been teaching?</summary><div class="answer">Over 12 years — started at SJKC Moon Teck in 2013, joined SJKC Pin Min in 2015, where I still teach today.</div></details>
+            <details><summary>🎓 What am I currently studying?</summary><div class="answer">I'm pursuing a PhD in Educational Psychology at Universiti Pendidikan Sultan Idris (2023–present). My research explores teacher motivation, information overload, and pedagogical practices.</div></details>
+            <details><summary>🏀 Basketball involvement?</summary><div class="answer">I've coached district and state basketball teams since 2014. I hold a Level 1 Coaching Certification from the Malaysian Basketball Association and have refereeing certifications from both Selangor (2015) and Perak (2016).</div></details>
+            <details><summary>📚 Published work?</summary><div class="answer">I've authored multiple workbooks published by Heng Hui Enterprise (since 2021), plus English Writing Modules for primary students published at district, state, and national levels.</div></details>
+            <details><summary>🌍 Conference experience?</summary><div class="answer">I've presented at international conferences in Malaysia and France, covering topics from ESL pedagogy to educational innovation. I've earned Gold, Bronze, and other awards in teaching innovation competitions.</div></details>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <p>Built with 🧡 for the Guru Cemerlang application</p>
+        <p style="margin-top:0.3rem; color:#475569;">Lian Junxiang · (+6)016-5081468 · g-17171850@moe-dl.edu.my</p>
+        <p style="margin-top:0.5rem; font-size:0.8rem;">&copy; 2026 — All information verified and accurate</p>
+    </div>
+</footer>
+
+</body>
+</html>
