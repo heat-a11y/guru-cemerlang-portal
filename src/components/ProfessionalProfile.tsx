@@ -7,38 +7,41 @@ export default function ProfessionalProfile() {
     <section id="profile">
       <div className="mb-8">
         <h2 className="text-2xl md:text-3xl font-bold text-primary">Professional Profile</h2>
-        <p className="text-gray-500 mt-1">Career trajectory, performance excellence, and professional recognition</p>
+        <p className="text-gray-500 mt-1">🌟 Career trajectory, performance excellence, and professional recognition</p>
       </div>
 
       <div className="mb-12">
         <div className="flex items-center gap-3 mb-6">
-          <div className="w-1 h-6 bg-accent rounded-full" />
+          <span className="w-1 h-8 bg-gradient-to-b from-blue-400 to-cyan-400 rounded-full" />
           <h3 className="text-lg font-bold text-primary">Interactive Career Timeline</h3>
         </div>
-        <p className="text-sm text-gray-500 mb-6">
-          Mapping two decades of educational service from initial appointment (DG41) through to Master Educator ranks (DG44–DG54).
+        <p className="text-sm text-gray-500 mb-6 flex items-center gap-2">
+          <span className="inline-block w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
+          Mapping two decades of educational service from initial appointment (DG41) through to Master Educator ranks (DG44–DG54)
         </p>
         <CareerTimeline />
       </div>
 
       <div className="mb-12">
         <div className="flex items-center gap-3 mb-6">
-          <div className="w-1 h-6 bg-accent rounded-full" />
+          <span className="w-1 h-8 bg-gradient-to-b from-amber-400 to-orange-400 rounded-full" />
           <h3 className="text-lg font-bold text-primary">Performance Metrics Tracker</h3>
         </div>
-        <p className="text-sm text-gray-500 mb-6">
-          Annual PBPPP performance excellence scores demonstrating sustained growth and outstanding achievement.
+        <p className="text-sm text-gray-500 mb-6 flex items-center gap-2">
+          <span className="inline-block w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+          Annual PBPPP performance excellence scores demonstrating sustained growth and outstanding achievement
         </p>
         <PerformanceMetrics />
       </div>
 
       <div className="mb-12">
         <div className="flex items-center gap-3 mb-6">
-          <div className="w-1 h-6 bg-accent rounded-full" />
+          <span className="w-1 h-8 bg-gradient-to-b from-purple-400 to-pink-400 rounded-full" />
           <h3 className="text-lg font-bold text-primary">Accolades & Recognition</h3>
         </div>
-        <p className="text-sm text-gray-500 mb-6">
-          Awards and honors reflecting consistent excellence in teaching, innovation, and service.
+        <p className="text-sm text-gray-500 mb-6 flex items-center gap-2">
+          <span className="inline-block w-2 h-2 rounded-full bg-purple-400 animate-pulse" />
+          Awards and honors reflecting consistent excellence in teaching, innovation, and service
         </p>
         <AwardsGrid />
       </div>
