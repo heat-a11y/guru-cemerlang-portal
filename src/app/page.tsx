@@ -38,9 +38,9 @@ export default function Home() {
             <span className="w-3 h-3 rounded-full bg-[#FFCC00]"></span>
           </div>
           <p className="text-sm text-gray-400 mt-2">
-            Portal Pemohon Guru Cemerlang &copy; {new Date().getFullYear()} &mdash; Dibina dengan ❤️ menggunakan Next.js &amp; Tailwind CSS
+            Guru Cemerlang Applicant Portal &copy; {new Date().getFullYear()} &mdash; Built with ❤️ using Next.js &amp; Tailwind CSS
           </p>
-          <p className="text-xs text-gray-400 mt-1">Malaysia &mdash; Tanah Airku</p>
+          <p className="text-xs text-gray-400 mt-1">Made with pride in Malaysia</p>
         </footer>
       </main>
     </div>

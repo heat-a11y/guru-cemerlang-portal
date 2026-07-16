@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Portal Pemohon Guru Cemerlang",
-  description: "Permohonan Kenaikan Pangkat ke Guru Cemerlang — Profil Profesional, Inovasi Pedagogi, Perancang Kurikulum, dan Pusat Penyelidikan & Kepimpinan",
+  title: "Guru Cemerlang Applicant Portal",
+  description: "Application for Promotion to Excellent Teacher (Guru Cemerlang) — Professional Portfolio, Pedagogical Innovations, Curriculum Fidelity Planner, and Research & Leadership Hub",
 };
 
 export default function RootLayout({
@@ -24,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="ms"
+      lang="en"
       className={`${geistSans.variable} ${geistMono.variable} antialiased`}
     >
       <body className="bg-gray-50 text-foreground">{children}</body>

@@ -3,10 +3,10 @@
 import { useState, useEffect } from 'react';
 
 const navItems = [
-  { id: 'profile', label: 'Profil Profesional', icon: '👤', color: 'from-blue-400 to-cyan-300' },
-  { id: 'innovations', label: 'Inovasi Pedagogi', icon: '💡', color: 'from-amber-400 to-orange-300' },
-  { id: 'planner', label: 'Perancang Kurikulum', icon: '📋', color: 'from-emerald-400 to-teal-300' },
-  { id: 'research', label: 'Penyelidikan & Kepimpinan', icon: '🎓', color: 'from-purple-400 to-pink-300' },
+  { id: 'profile', label: 'Professional Profile', icon: '👤', color: 'from-blue-400 to-cyan-300' },
+  { id: 'innovations', label: 'Pedagogical Innovations', icon: '💡', color: 'from-amber-400 to-orange-300' },
+  { id: 'planner', label: 'Curriculum Fidelity Planner', icon: '📋', color: 'from-emerald-400 to-teal-300' },
+  { id: 'research', label: 'Research & Leadership', icon: '🎓', color: 'from-purple-400 to-pink-300' },
 ];
 
 export default function Sidebar() {
@@ -41,10 +41,36 @@ export default function Sidebar() {
 
   const sidebarContent = (
     <div className="relative z-10 flex flex-col h-full">
+      {/* Jalur Gemilang flag stripe */}
+      <div className="flex h-1 w-full">
+        <span className="flex-1 bg-[#CC0000]" />
+        <span className="flex-1 bg-white" />
+        <span className="flex-1 bg-[#CC0000]" />
+        <span className="flex-1 bg-white" />
+        <span className="flex-1 bg-[#CC0000]" />
+        <span className="flex-1 bg-white" />
+        <span className="flex-1 bg-[#CC0000]" />
+        <span className="flex-1 bg-white" />
+        <span className="flex-1 bg-[#CC0000]" />
+        <span className="flex-1 bg-white" />
+        <span className="flex-1 bg-[#CC0000]" />
+        <span className="flex-1 bg-white" />
+        <span className="flex-1 bg-[#CC0000]" />
+        <span className="flex-1 bg-white" />
+      </div>
       <div className="flex items-center justify-between p-4 border-b border-white/10">
         {!collapsed && (
           <span className="text-lg font-bold tracking-tight text-white flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-accent animate-pulse-glow" />
+            <svg viewBox="0 0 30 20" className="w-6 h-4 rounded-sm shadow-sm">
+              <rect width="30" height="20" fill="#000080" />
+              <rect y="2" width="30" height="2" fill="#CC0000" />
+              <rect y="6" width="30" height="2" fill="#CC0000" />
+              <rect y="10" width="30" height="2" fill="#CC0000" />
+              <rect y="14" width="30" height="2" fill="#CC0000" />
+              <rect y="18" width="30" height="2" fill="#CC0000" />
+              <rect width="14" height="12" fill="#000080" />
+              <polygon points="7,1 9,5 13,5 10,8 11,12 7,9 3,12 4,8 1,5 5,5" fill="#FFCC00" />
+            </svg>
             <span className="text-[#FFCC00]">Guru</span> Cemerlang
           </span>
         )}
@@ -93,10 +119,37 @@ export default function Sidebar() {
         ))}
       </nav>
 
-      <div className="relative z-10 p-4 border-t border-white/10">
+      {/* Songket-inspired decorative border */}
+      <div className="relative z-10 px-4 py-1 border-t border-white/10">
         {!collapsed && (
-          <div className="text-xs text-white/40 text-center">
-            ✨ Guru Cemerlang v1.0
+          <div className="flex justify-center gap-1.5 mb-1">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#FFCC00]/60" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#CC0000]/60" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#FFCC00]/60" />
+            <span className="w-1.5 h-1.5 rounded-full bg-white/30" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#FFCC00]/60" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#CC0000]/60" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#FFCC00]/60" />
+          </div>
+        )}
+      </div>
+      <div className="relative z-10 p-4 pt-2 border-t border-white/10">
+        {!collapsed && (
+          <div className="text-[10px] text-white/30 text-center leading-relaxed">
+            <div className="flex items-center justify-center gap-1 mb-1">
+              <svg viewBox="0 0 16 12" className="w-3 h-2.5">
+                <rect width="16" height="12" fill="#000080" />
+                <rect y="1" width="16" height="1.5" fill="#CC0000" />
+                <rect y="3.5" width="16" height="1.5" fill="#CC0000" />
+                <rect y="6" width="16" height="1.5" fill="#CC0000" />
+                <rect y="8.5" width="16" height="1.5" fill="#CC0000" />
+                <rect y="11" width="16" height="1" fill="#CC0000" />
+                <rect width="7" height="7" fill="#000080" />
+                <polygon points="3.5,0.5 4.5,2.5 6.5,2.5 5,4 5.5,6 3.5,4.5 1.5,6 2,4 0.5,2.5 2.5,2.5" fill="#FFCC00" />
+              </svg>
+              <span className="tracking-wider">MALAYSIA</span>
+            </div>
+            ✦ Guru Cemerlang Portal v1.0 ✦
           </div>
         )}
       </div>

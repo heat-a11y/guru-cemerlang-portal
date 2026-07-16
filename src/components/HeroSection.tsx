@@ -13,18 +13,18 @@ export default function HeroSection() {
 
         <div className="flex-1 text-center md:text-left">
           <div className="inline-block px-3 py-1 bg-white/15 rounded-full text-xs font-semibold mb-3 backdrop-blur-sm animate-pulse-glow">
-            🎯 Kenaikan Pangkat Guru Cemerlang
+            🎯 Excellent Teacher Promotion
           </div>
           <h1 className="text-2xl md:text-4xl font-bold mb-2 leading-tight">
-            Permohonan Kenaikan Pangkat ke <br />
-            <span className="text-accent-light">Guru Cemerlang</span>
+            Application for Promotion to <br />
+            <span className="text-accent-light">Excellent Teacher (Guru Cemerlang)</span>
           </h1>
           <p className="text-white/80 text-sm md:text-base mt-2 flex items-center gap-2 justify-center md:justify-start">
-            <span>Pendidik Dedikasi</span>
+            <span>Dedicated Educator</span>
             <span className="w-1 h-1 rounded-full bg-white/40" />
-            <span>Inovator Kurikulum</span>
+            <span>Curriculum Innovator</span>
             <span className="w-1 h-1 rounded-full bg-white/40" />
-            <span>Pemimpin Instruksional</span>
+            <span>Instructional Leader</span>
           </p>
 
           <div className="flex flex-wrap gap-2 mt-5 justify-center md:justify-start">
@@ -45,7 +45,7 @@ export default function HeroSection() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
-              Kementerian Pendidikan Malaysia
+              Ministry of Education Malaysia
             </span>
           </div>
         </div>
