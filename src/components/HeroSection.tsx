@@ -5,10 +5,17 @@ export default function HeroSection() {
       <div className="absolute -top-20 -right-20 w-64 h-64 bg-white/5 rounded-full blur-3xl animate-float-slow" />
       <div className="absolute -bottom-20 -left-20 w-48 h-48 bg-accent/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }} />
       <div className="absolute top-1/2 left-1/3 w-32 h-32 bg-blue-400/10 rounded-full blur-2xl animate-float" style={{ animationDelay: '2s' }} />
+      {/* Jalur Gemilang wave accent bar */}
+      <div className="absolute bottom-0 left-0 right-0 h-1 jalur-gemilang-bar opacity-60" />
 
       <div className="relative z-10 flex flex-col md:flex-row items-center gap-8">
-        <div className="w-32 h-32 md:w-40 md:h-40 rounded-full border-4 border-white/30 overflow-hidden flex-shrink-0 bg-gradient-to-br from-[#CC0000] via-[#000080] to-[#FFCC00] flex items-center justify-center shadow-xl animate-float-slow group">
-          <span className="text-3xl md:text-4xl font-bold text-white drop-shadow-lg group-hover:scale-110 transition-transform duration-300">GC</span>
+        <div className="relative w-32 h-32 md:w-40 md:h-40 flex-shrink-0">
+          {/* Flag halo ring */}
+          <div className="absolute inset-0 rounded-full border-2 border-[#FFCC00]/40 animate-spin-slow" style={{ animationDuration: '8s' }} />
+          <div className="absolute inset-[-8px] rounded-full border border-white/10 animate-spin-slow" style={{ animationDuration: '12s', animationDirection: 'reverse' }} />
+          <div className="w-full h-full rounded-full border-4 border-white/30 overflow-hidden bg-gradient-to-br from-[#CC0000] via-[#000080] to-[#FFCC00] flex items-center justify-center shadow-xl animate-float-slow group">
+            <span className="text-3xl md:text-4xl font-bold text-white drop-shadow-lg group-hover:scale-110 transition-transform duration-300">GC</span>
+          </div>
         </div>
 
         <div className="flex-1 text-center md:text-left">

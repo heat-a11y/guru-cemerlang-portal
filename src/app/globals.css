@@ -117,9 +117,14 @@ body {
   0% { background-position: 0 0; }
   100% { background-position: 100px 100px; }
 }
+@keyframes spin-slow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
 
 .animate-float { animation: float 3s ease-in-out infinite; }
 .animate-float-slow { animation: float-slow 4s ease-in-out infinite; }
+.animate-spin-slow { animation: spin-slow 8s linear infinite; }
 .animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
 .animate-shimmer { background-size: 200% auto; animation: shimmer 2.5s linear infinite; }
 .animate-rainbow-bg { background-size: 200% 200%; animation: rainbow-bg 6s ease infinite; }
