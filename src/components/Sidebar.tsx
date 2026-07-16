@@ -3,10 +3,10 @@
 import { useState, useEffect } from 'react';
 
 const navItems = [
-  { id: 'profile', label: 'Professional Profile', icon: '👤', color: 'from-blue-400 to-cyan-300' },
-  { id: 'innovations', label: 'Pedagogical Innovations', icon: '💡', color: 'from-amber-400 to-orange-300' },
-  { id: 'planner', label: 'Curriculum Fidelity Planner', icon: '📋', color: 'from-emerald-400 to-teal-300' },
-  { id: 'research', label: 'Research & Leadership', icon: '🎓', color: 'from-purple-400 to-pink-300' },
+  { id: 'profile', label: 'Profil Profesional', icon: '👤', color: 'from-blue-400 to-cyan-300' },
+  { id: 'innovations', label: 'Inovasi Pedagogi', icon: '💡', color: 'from-amber-400 to-orange-300' },
+  { id: 'planner', label: 'Perancang Kurikulum', icon: '📋', color: 'from-emerald-400 to-teal-300' },
+  { id: 'research', label: 'Penyelidikan & Kepimpinan', icon: '🎓', color: 'from-purple-400 to-pink-300' },
 ];
 
 export default function Sidebar() {
@@ -45,7 +45,7 @@ export default function Sidebar() {
         {!collapsed && (
           <span className="text-lg font-bold tracking-tight text-white flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-accent animate-pulse-glow" />
-            GC Portal
+            <span className="text-[#FFCC00]">Guru</span> Cemerlang
           </span>
         )}
         <div className="flex items-center gap-2">
@@ -132,8 +132,8 @@ export default function Sidebar() {
           mobileOpen ? 'flex w-64' : 'hidden md:flex'
         }`}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0f1f33] via-[#1a2f4f] to-[#0f1f33]" />
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wMyI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMSIvPjwvZz48L2c+PC9zdmc+')] opacity-50" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#000080] via-[#1a2f4f] to-[#0f1f33]" />
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMjAgNDBsMTAtMTAgMTAgMTAtMTAgMTB6TTUwIDQwbDEwLTEwIDEwIDEwLTEwIDEweiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjAuNSIgc3Ryb2tlLW9wYWNpdHk9IjAuMDYiLz48cGF0aCBkPSJNMjAgNzBsMTAtMTAgMTAgMTAtMTAgMTB6TTUwIDcwbDEwLTEwIDEwIDEwLTEwIDEweiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjAuNSIgc3Ryb2tlLW9wYWNpdHk9IjAuMDYiLz48cGF0aCBkPSJNMjAgMTBsMTAtMTAgMTAgMTAtMTAgMTB6TTUwIDEwbDEwLTEwIDEwIDEwLTEwIDEweiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjAuNSIgc3Ryb2tlLW9wYWNpdHk9IjAuMDYiLz48L3N2Zz4=')] opacity-40" />
         {sidebarContent}
       </aside>
     </>

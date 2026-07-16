@@ -17,6 +17,10 @@
   --purple: #8b5cf6;
   --teal: #14b8a6;
   --orange: #f97316;
+  --malaysia-red: #CC0000;
+  --malaysia-blue: #000080;
+  --malaysia-yellow: #FFCC00;
+  --malaysia-white: #FFFFFF;
 }
 
 @theme inline {
@@ -27,13 +31,16 @@
   --color-primary-dark: var(--primary-dark);
   --color-accent: var(--accent);
   --color-accent-light: var(--accent-light);
+  --color-malaysia-red: var(--malaysia-red);
+  --color-malaysia-blue: var(--malaysia-blue);
+  --color-malaysia-yellow: var(--malaysia-yellow);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 /* ─── Base ─── */
 body {
-  background: linear-gradient(135deg, #f0f4ff 0%, #fdf2f8 50%, #f0fdf4 100%);
+  background: linear-gradient(135deg, #f0f4ff 0%, #fff8f0 30%, #fff0f0 60%, #f0f4ff 100%);
   background-attachment: fixed;
   color: var(--foreground);
   font-family: var(--font-sans, Arial, Helvetica, sans-serif);
@@ -100,6 +107,16 @@ body {
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+@keyframes wave-flag {
+  0%, 100% { transform: translateX(0) translateY(0); }
+  25% { transform: translateX(3px) translateY(-2px); }
+  50% { transform: translateX(0) translateY(0); }
+  75% { transform: translateX(-3px) translateY(2px); }
+}
+@keyframes batik-pattern {
+  0% { background-position: 0 0; }
+  100% { background-position: 100px 100px; }
+}
 
 .animate-float { animation: float 3s ease-in-out infinite; }
 .animate-float-slow { animation: float-slow 4s ease-in-out infinite; }
@@ -119,6 +136,25 @@ body {
 .animate-grow { animation: grow 0.6s ease-out forwards; }
 .animate-tilt-shake:hover { animation: tilt-shake 0.3s ease-in-out; }
 .animate-gradient-shift { background-size: 200% 200%; animation: gradient-shift 4s ease infinite; }
+.animate-wave-flag { animation: wave-flag 4s ease-in-out infinite; }
+.animate-batik-pattern { background-size: 100px 100px; animation: batik-pattern 20s linear infinite; }
+
+/* Jalur Gemilang flag accent bar */
+.jalur-gemilang-bar {
+  height: 4px;
+  background: linear-gradient(90deg, #CC0000 0%, #CC0000 14.28%, #FFFFFF 14.28%, #FFFFFF 28.57%, #CC0000 28.57%, #CC0000 42.85%, #FFFFFF 42.85%, #FFFFFF 57.14%, #CC0000 57.14%, #CC0000 71.42%, #FFFFFF 71.42%, #FFFFFF 85.71%, #CC0000 85.71%, #CC0000 100%);
+  border: none;
+  margin: 0;
+}
+
+/* Batik-inspired section divider */
+.section-batik {
+  height: 12px;
+  background: repeating-conic-gradient(#000080 0% 25%, transparent 0% 50%) 0 0 / 20px 20px,
+              repeating-conic-gradient(#CC0000 0% 25%, transparent 0% 50%) 10px 10px / 20px 20px;
+  opacity: 0.15;
+  border: none;
+}
 
 /* stagger children */
 .stagger-children > * {
@@ -175,7 +211,7 @@ body {
 }
 
 .hero-gradient {
-  background: linear-gradient(-45deg, #1e3a5f, #2a5080, #3b82f6, #1e3a5f);
+  background: linear-gradient(-45deg, #000080, #1e3a5f, #CC0000, #000080);
   background-size: 400% 400%;
   animation: gradient-shift 8s ease infinite;
 }
@@ -186,7 +222,7 @@ body {
 
 .text-gradient {
   @apply bg-clip-text text-transparent;
-  background-image: linear-gradient(135deg, #1e3a5f, #3b82f6, #8b5cf6);
+  background-image: linear-gradient(135deg, #000080, #CC0000, #FFCC00);
 }
 
 /* confetti pieces */
