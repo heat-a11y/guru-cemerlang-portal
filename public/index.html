@@ -59,6 +59,7 @@
       transform: translateY(-4px);
       box-shadow: 0 12px 48px rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.03);
     }
+    #activities .bento { cursor: pointer; }
 
     /* ---- Nav ---- */
     .nav-blur {
@@ -182,6 +183,7 @@
         <a href="#journey" class="hover:text-gray-900 transition-colors">Journey</a>
         <a href="#impact" class="hover:text-gray-900 transition-colors">Impact</a>
         <a href="#credentials" class="hover:text-gray-900 transition-colors">Credentials</a>
+        <a href="#activities" class="hover:text-gray-900 transition-colors">Activities</a>
         <a href="#accomplishments" class="hover:text-gray-900 transition-colors">Accomplishments</a>
       </div>
     </div>
@@ -534,6 +536,79 @@
     </div>
   </section>
 
+  <!-- ============ TEACHING & LEARNING ACTIVITIES ============ -->
+  <section id="activities" class="py-24 md:py-32">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center mb-16 reveal">
+        <span class="section-label">Classroom in Action</span>
+        <h2 class="text-4xl md:text-6xl font-bold tracking-tight text-gray-900 mt-3">Teaching &amp; Learning Activities</h2>
+        <p class="text-gray-500 mt-4 max-w-xl mx-auto text-lg font-light">Moments from classroom instruction, student engagement, and school life.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div class="bento overflow-hidden reveal group">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="images/activity-01.jpg" alt="Classroom teaching activity" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+          </div>
+          <div class="p-4">
+            <p class="text-xs text-gray-400 font-semibold tracking-wide">December 2024</p>
+            <p class="text-sm font-medium text-gray-900 mt-1">Classroom instruction session</p>
+          </div>
+        </div>
+
+        <div class="bento overflow-hidden reveal group">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="images/activity-02.jpg" alt="Student activity" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+          </div>
+          <div class="p-4">
+            <p class="text-xs text-gray-400 font-semibold tracking-wide">March 2025</p>
+            <p class="text-sm font-medium text-gray-900 mt-1">Student learning engagement</p>
+          </div>
+        </div>
+
+        <div class="bento overflow-hidden reveal group">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="images/activity-03.jpg" alt="Educational activity" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+          </div>
+          <div class="p-4">
+            <p class="text-xs text-gray-400 font-semibold tracking-wide">April 2025</p>
+            <p class="text-sm font-medium text-gray-900 mt-1">Classroom teaching moment</p>
+          </div>
+        </div>
+
+        <div class="bento overflow-hidden reveal group">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="images/activity-04.jpg" alt="School activity" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+          </div>
+          <div class="p-4">
+            <p class="text-xs text-gray-400 font-semibold tracking-wide">May 2025</p>
+            <p class="text-sm font-medium text-gray-900 mt-1">Student collaborative work</p>
+          </div>
+        </div>
+
+        <div class="bento overflow-hidden reveal group">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="images/activity-05.jpg" alt="Classroom group activity" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+          </div>
+          <div class="p-4">
+            <p class="text-xs text-gray-400 font-semibold tracking-wide">August 2025</p>
+            <p class="text-sm font-medium text-gray-900 mt-1">Group learning session</p>
+          </div>
+        </div>
+
+        <div class="bento overflow-hidden reveal group">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="images/activity-06.jpg" alt="Teaching session" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+          </div>
+          <div class="p-4">
+            <p class="text-xs text-gray-400 font-semibold tracking-wide">August 2025</p>
+            <p class="text-sm font-medium text-gray-900 mt-1">Teacher-student interaction</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ FOOTER ============ -->
   <footer class="py-16 md:py-20 bg-[#fbfbfd] border-t border-[#f0f0f2]">
     <div class="max-w-4xl mx-auto px-6 text-center">
@@ -587,6 +662,27 @@
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
     revealEls.forEach(el => observer.observe(el));
+
+    // Lightbox
+    const galleryItems = document.querySelectorAll('#activities .bento');
+    const lightbox = document.createElement('div');
+    lightbox.className = 'fixed inset-0 z-[100] bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300';
+    lightbox.innerHTML = '<button class="absolute top-6 right-6 text-white/60 hover:text-white text-2xl transition-colors" id="lb-close">&times;</button><img id="lb-img" class="max-w-full max-h-[90vh] rounded-2xl shadow-2xl object-contain" alt="">';
+    document.body.appendChild(lightbox);
+    const lbImg = document.getElementById('lb-img');
+    const lbClose = document.getElementById('lb-close');
+    galleryItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const img = item.querySelector('img');
+        if (img) {
+          lbImg.src = img.src.replace(/\?.*$/, '');
+          lightbox.classList.remove('opacity-0', 'pointer-events-none');
+        }
+      });
+    });
+    lbClose.addEventListener('click', () => lightbox.classList.add('opacity-0', 'pointer-events-none'));
+    lightbox.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.classList.add('opacity-0', 'pointer-events-none'); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') lightbox.classList.add('opacity-0', 'pointer-events-none'); });
 
     // Counters
     const counters = document.querySelectorAll('.stat-number[data-target]');
